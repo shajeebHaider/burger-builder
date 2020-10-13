@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classes from './BuildControl.module.css'
 
-const BuildControl = (props) => {
+const buildControl = (props) => {
   return (
     <div className={classes.BuildControl}>
       <div className={classes.Label}>{props.label}</div>
@@ -15,4 +16,8 @@ const BuildControl = (props) => {
   )
 }
 
-export default BuildControl
+buildControl.propTypes = {
+  label: PropTypes.string.isRequired
+}
+
+export default buildControl

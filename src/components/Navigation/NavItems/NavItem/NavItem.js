@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classes from './NavItem.module.css'
 
 const navItem = (props) => {
@@ -9,6 +10,10 @@ const navItem = (props) => {
       </a>
     </li>
   )
+}
+
+navItem.propTypes = {
+  link: PropTypes.string.isRequired
 }
 
 export default navItem

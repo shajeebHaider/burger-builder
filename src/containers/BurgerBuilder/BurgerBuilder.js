@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Aux from '../../hoc/Auxiliary'
 import Burger from '../../components/Burger/Burger'
-import BurgerBuilders from '../../components/Burger/BuildControls/BuildControls'
+import BurgerBuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
@@ -104,7 +104,7 @@ class BurgerBuilder extends Component {
         </Modal>
 
         <Burger ingredients={this.state.ingredients}/>
-        <BurgerBuilders
+        <BurgerBuildControls
           price={this.state.totalPrice}
           addIngredient={this.addIngredientHandler}
           remIngredient={this.removeIngredientHandler}
