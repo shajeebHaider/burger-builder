@@ -111,3 +111,11 @@
     background: linear-gradient(#bf3813, #c45e38);
     margin: 2% auto;
 }
+
+.Capsicum {
+    width: 90%;
+    height: 7%;
+    background: linear-gradient(90deg, #fc2828 0%, #cecf32 50%, #27ff00 100%);
+    margin: 2% auto;
+    border-radius: 20px;
+}

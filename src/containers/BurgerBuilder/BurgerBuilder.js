@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Aux from '../../hoc/Auxiliary'
+import Aux from '../../hoc/Auxiliary/Auxiliary'
 import Burger from '../../components/Burger/Burger'
 import BurgerBuildControls from '../../components/Burger/BuildControls/BuildControls'
 import Modal from '../../components/UI/Modal/Modal'
@@ -9,7 +9,8 @@ const INGREDIENT_PRICES = {
   salad: 0.5,
   cheese: 0.4,
   meat: 1.3,
-  bacon: 0.7
+  bacon: 0.7,
+  capsicum: 0.6
 }
 
 class BurgerBuilder extends Component {
@@ -19,7 +20,8 @@ class BurgerBuilder extends Component {
       salad: 0,
       bacon: 0,
       cheese: 0,
-      meat: 0
+      meat: 0,
+      capsicum: 0
     },
     totalPrice: 4,
     purchasable: false,
@@ -29,16 +31,19 @@ class BurgerBuilder extends Component {
   // updatePurchasableState -----------------
   updatePurchasableState = (ingredients) => {
     const sum = Object.keys(ingredients)
-                      .map(igKey => ingredients[igKey])
-                      .reduce((acc, cuVal) => {
-                        return acc + cuVal
-                      }, 0)
+      .map(igKey => ingredients[igKey])
+      .reduce((acc, cuVal) => {
+        return acc + cuVal
+      }, 0)
     this.setState({ purchasable: sum > 0 })
   }
 
   // addIngredientHandler -----------------------
   addIngredientHandler = type => {
     const oldCount = this.state.ingredients[type]
+
+    if (oldCount >= 5) return
+
     const updateCount = oldCount + 1
 
     const updateIngredients = { ...this.state.ingredients }
@@ -84,10 +89,15 @@ class BurgerBuilder extends Component {
   }
 
   render () {
-    const disableInfo = { ...this.state.ingredients }
+    const disableLess = { ...this.state.ingredients }
+    const disableMore = { ...this.state.ingredients }
 
-    for (let key in disableInfo) {
-      disableInfo[key] = disableInfo[key] <= 0
+    for (let key in disableLess) {
+      disableLess[key] = disableLess[key] <= 0
+    }
+
+    for (let key in disableMore) {
+      disableMore[key] = disableMore[key] >= 5
     }
 
     return (
@@ -106,9 +116,11 @@ class BurgerBuilder extends Component {
         <Burger ingredients={this.state.ingredients}/>
         <BurgerBuildControls
           price={this.state.totalPrice}
+          ingredientCount={this.state.ingredients}
           addIngredient={this.addIngredientHandler}
           remIngredient={this.removeIngredientHandler}
-          disabled={disableInfo}
+          disableLess={disableLess}
+          disableMore={disableMore}
           purchasable={this.state.purchasable}
           ordered={this.purchaseHandler}
         />

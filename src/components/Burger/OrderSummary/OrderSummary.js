@@ -1,29 +1,35 @@
-import React from 'react'
-import Aux from '../../../hoc/Auxiliary'
+import React, { Component } from 'react'
+import Aux from '../../../hoc/Auxiliary/Auxiliary'
 import Button from '../../UI/Button/Button'
 
-const orderSummary = props => {
+class OrderSummary extends Component {
 
-  const ingredientsSummery = Object.keys(props.ingredietrs)
-                                   .map((igKey, index) => <li key={igKey + index}>
-                                     <span style={{ textTransform: 'capitalize' }}>{igKey}</span>
-                                     : {props.ingredietrs[igKey]}
-                                   </li>)
+  // componentDidUpdate (prevProps, prevState, snapshot) {
+  //   console.log(`[Order Summary] did update`)
+  // }
 
-  return (
-    <Aux>
-      <h3>Your order</h3>
-      <p>A delicious burger with the following ingredients</p>
-      <ul>
-        {ingredientsSummery}
-      </ul>
-      <p>Total price is : <strong>{props.totalPrice.toFixed(2)}</strong> $</p>
-      <p>Continue to Checkout?</p>
+  render () {
+    const ingredientsSummery = Object.keys(this.props.ingredietrs)
+      .map((igKey, index) => <li key={igKey + index}>
+        <span style={{ textTransform: 'capitalize' }}>{igKey}</span>
+        : {this.props.ingredietrs[igKey]}
+      </li>)
 
-      <Button clicked={props.closeModal} btnType='Danger'>CANCEL</Button>
-      <Button clicked={props.continuePurchase} btnType='Success'>CONTINUE</Button>
-    </Aux>
-  )
+    return (
+      <Aux>
+        <h3>Your order</h3>
+        <p>A delicious burger with the following ingredients</p>
+        <ul>
+          {ingredientsSummery}
+        </ul>
+        <p>Total price is : <strong>{this.props.totalPrice.toFixed(2)}</strong> $</p>
+        <p>Continue to Checkout?</p>
+
+        <Button clicked={this.props.closeModal} btnType='Danger'>CANCEL</Button>
+        <Button clicked={this.props.continuePurchase} btnType='Success'>CONTINUE</Button>
+      </Aux>
+    )
+  }
 }
 
-export default orderSummary
+export default OrderSummary

@@ -6,12 +6,20 @@ const buildControl = (props) => {
   return (
     <div className={classes.BuildControl}>
       <div className={classes.Label}>{props.label}</div>
+      <div className={classes.Count}>{props.ingredientCount}</div>
       <button
         onClick={props.remove}
         className={classes.Less}
-        disabled={props.disabled}
-      >Less</button>
-      <button onClick={props.added} className={classes.More}>More</button>
+        disabled={props.disableLess}
+      >Less
+      </button>
+      <button
+        onClick={props.added}
+        className={classes.More}
+        disabled={props.disableMore}
+      >
+        {props.disableMore ? 'Only 5' : 'More'}
+      </button>
     </div>
   )
 }

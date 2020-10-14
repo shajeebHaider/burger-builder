@@ -9,6 +9,11 @@
     padding: 10px 0;
 }
 
+.Price {
+    color: #fff;
+    font-size: 20px;
+}
+
 .OrderButton {
     background-color: #DAD735;
     outline: none;
@@ -19,6 +24,8 @@
     font-size: 1.2em;
     padding: 15px 30px;
     box-shadow: 2px 2px 2px #966909;
+    margin: 30px auto;
+    border-radius: 5px;
 }
 
 .OrderButton:hover, .OrderButton:active {
