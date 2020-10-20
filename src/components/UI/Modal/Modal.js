@@ -21,7 +21,7 @@ class Modal extends Component  {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+            transform: this.props.show ? 'translateY(-50px)' : 'translateY(-210vh)',
             opacity: this.props.show ? '1' : '0'
           }}
         >
@@ -33,9 +33,9 @@ class Modal extends Component  {
 }
 
 Modal.propTypes = {
-  show: PropTypes.bool.isRequired,
+  show: PropTypes.any,
   closeModal: PropTypes.func.isRequired,
-  children: PropTypes.object.isRequired
+  children: PropTypes.any
 }
 
 export default Modal

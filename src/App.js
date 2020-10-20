@@ -4,11 +4,12 @@ import Layout from './hoc/Layout/Layout'
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
 
 class App extends Component {
-  render () {
+
+  render() {
     return (
       <Aux>
         <Layout>
-          <BurgerBuilder />
+          <BurgerBuilder/>
         </Layout>
       </Aux>
     )
