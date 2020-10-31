@@ -5,4 +5,30 @@
   padding: 10px;
   margin: 10px auto;
   box-sizing: border-box;
+  display: flex;
+}
+
+.IGItem {
+  text-transform: capitalize;
+  margin: 0 5px;
+  padding: 5px;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.OrderInfo {
+  flex: 1;
+}
+
+.OrderCancel {
+  margin-right: 20px;
+  align-self: center;
+}
+
+.OrderCancel button {
+  font-size: 30px;
+  margin: unset !important;
+  padding: unset !important;
 }

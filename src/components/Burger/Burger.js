@@ -7,14 +7,19 @@ const burger = (props) => {
   // take care about this start
   let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
     return [...Array(props.ingredients[igKey])].map((_, index) => {
-      return <BurgerIngredient key={igKey + index} type={igKey} />
+      return <BurgerIngredient key={igKey + index} type={igKey}/>
     })
-  }).reduce((acu, curEl) => {
-    return acu.concat(curEl)
-  }, [])
+  })
+    // ingredient counts
+    .reduce((acu, curEl) => {
+      return acu.concat(curEl)
+    }, [])
   // take care about this end
 
-  if(transformedIngredients.length === 0) {
+
+  console.log(Object.entries(props.ingredients))
+
+  if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding Ingredient</p>
   }
 

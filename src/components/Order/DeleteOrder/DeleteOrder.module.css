@@ -1,0 +1,15 @@
+.DeleteAlert {
+  color: #af5959;
+}
+.AlertText {
+  margin: 10px 0;
+}
+
+.AlertText  h2,
+.AlertText  h3{
+  margin: 0;
+}
+
+.AlertText h3 {
+  margin-bottom: 20px;
+}
