@@ -16,9 +16,6 @@ const burger = (props) => {
     }, [])
   // take care about this end
 
-
-  console.log(Object.entries(props.ingredients))
-
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding Ingredient</p>
   }

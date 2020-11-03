@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../../UI/Button/Button'
+import { Button } from '../../UI/Button/Button'
 import classes from './DeleteOrder.module.css'
 
 const deleteOrder = (props) => {

@@ -2,15 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classes from './Button.module.css'
 
-const button = (props) => (
+const Button = (props) => (
   <button
     className={[classes.Button, classes[props.btnType], classes[props.btnCenter]].join(' ')}
     onClick={props.clicked}>{props.children}</button>
 )
 
-button.propTypes = {
+Button.propTypes = {
   clicked: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired
 }
 
-export default button
+const SubmitBTN = (props) => (
+  <button className={classes.SubmitBTN} disabled={props.disable}>{props.children}</button>
+)
+
+export { Button, SubmitBTN }

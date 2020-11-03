@@ -41,8 +41,7 @@ class Orders extends Component {
     let findIndex = order.findIndex(el => el.id === id)
 
     order.splice(findIndex, 1)
-    this.setState({orders: order})
-
+    this.setState({ orders: order })
 
 
     // // code for direct delete from firebase
@@ -50,25 +49,25 @@ class Orders extends Component {
     // .then(res => console.log(res))
     // console.log(this.state.selectedOrder)
 
-    this.setState({removing: false})
+    this.setState({ removing: false })
   }
 
   deleteItemHandler = (id) => {
-    this.setState({removing: true, selectedOrder: id })
+    this.setState({ removing: true, selectedOrder: id })
   }
 
   closeModalHandler = () => {
-    this.setState({removing: false, selectedOrder: ''})
+    this.setState({ removing: false, selectedOrder: '' })
   }
 
   render() {
-    let order = <h1 style={{textAlign: 'center', color: '#ff8a00'}}>No Data Found</h1>
+    let order = <h1 style={{ textAlign: 'center', color: '#ff8a00' }}>No Data Found</h1>
 
-    if(this.state.loading) {
-      order = <Spinner />
+    if (this.state.loading) {
+      order = <Spinner/>
     }
 
-    if(this.state.orders.length > 0) {
+    if (this.state.orders.length > 0) {
       order = <div>
         {this.state.orders.map(order => (
           <Order
@@ -83,8 +82,8 @@ class Orders extends Component {
       </div>
     }
 
-    if(this.state.error) {
-      order = <h2 style={{textAlign: 'center', color: 'red'}}>
+    if (this.state.error) {
+      order = <h2 style={{ textAlign: 'center', color: 'red' }}>
         {this.state.error.message}
       </h2>
     }
